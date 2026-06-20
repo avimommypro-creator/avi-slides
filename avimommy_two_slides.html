@@ -1,0 +1,150 @@
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .wrap { display: flex; flex-direction: column; gap: 20px; }
+  .label {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px; font-weight: 700;
+    color: #888; letter-spacing: 0.08em;
+    text-transform: uppercase; margin-bottom: 8px;
+  }
+
+  /* SHARED */
+  .slide {
+    border-radius: 16px;
+    font-family: 'Inter', sans-serif;
+    aspect-ratio: 16/9;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow: hidden;
+  }
+  .video-side {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .vp {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 10px; opacity: 0.2;
+  }
+  .vp-icon {
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 3px solid currentColor;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .vp-icon::after {
+    content: '';
+    width: 0; height: 0; border-style: solid;
+    border-width: 9px 0 9px 16px;
+    margin-left: 3px;
+  }
+  .vp-text { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; }
+  .text-side {
+    display: flex; flex-direction: column;
+    padding: 22px 28px 26px;
+  }
+  .handle {
+    display: flex; align-items: center; gap: 7px;
+  }
+  .av {
+    width: 26px; height: 26px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 900; flex-shrink: 0;
+  }
+  .hname { font-size: 12px; font-weight: 500; }
+  .main {
+    flex: 1; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; text-align: center;
+  }
+  .emo { font-size: 42px; line-height: 1; margin-bottom: 12px; display: block; }
+  .hl { font-size: 33px; font-weight: 900; line-height: 1.13; letter-spacing: -0.02em; }
+
+  /* LIGHT VERSION */
+  .light .video-side { background: #1a1a1a; }
+  .light .vp { color: #fff; }
+  .light .vp-icon::after { border-color: transparent transparent transparent #fff; }
+  .light .text-side { background: #F2F2EE; }
+  .light .hname { color: #777; }
+  .light .av { background: #C5D831; color: #1a1a1a; }
+  .light .hl { color: #111; }
+  .light .hl .acc {
+    background: linear-gradient(90deg, #C5D831, #8DBF2A);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* DARK VERSION */
+  .dark .video-side { background: #0f0f0f; }
+  .dark .vp { color: #fff; }
+  .dark .vp-icon::after { border-color: transparent transparent transparent #fff; }
+  .dark .text-side { background: #141414; }
+  .dark .hname { color: #555; }
+  .dark .av { background: #C5D831; color: #111; }
+  .dark .hl { color: #fff; }
+  .dark .hl .acc { color: #C5D831; }
+</style>
+
+<h2 class="sr-only">Два варианта слайда avi.mommy — светлый и тёмный с лаймовым акцентом</h2>
+
+<div class="wrap">
+
+  <div>
+    <div class="label">☀️ Светлая версия</div>
+    <div class="slide light">
+      <div class="video-side">
+        <div class="vp">
+          <div class="vp-icon"></div>
+          <div class="vp-text">ВИДЕО</div>
+        </div>
+      </div>
+      <div class="text-side">
+        <div class="handle">
+          <div class="av">A</div>
+          <span class="hname">avi.mommy</span>
+        </div>
+        <div class="main">
+          <span class="emo">🎯</span>
+          <div class="hl">
+            Как выбрать<br>
+            <span class="acc">прибыльную</span><br>
+            нишу?
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="label">🌙 Тёмная версия</div>
+    <div class="slide dark">
+      <div class="video-side">
+        <div class="vp">
+          <div class="vp-icon"></div>
+          <div class="vp-text">ВИДЕО</div>
+        </div>
+      </div>
+      <div class="text-side">
+        <div class="handle">
+          <div class="av">A</div>
+          <span class="hname">avi.mommy</span>
+        </div>
+        <div class="main">
+          <span class="emo">🎯</span>
+          <div class="hl">
+            Как выбрать<br>
+            <span class="acc">прибыльную</span><br>
+            нишу?
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div style="margin-top:16px; display:flex; gap:10px; flex-wrap:wrap; font-family:'Inter',sans-serif;">
+  <button onclick="sendPrompt('Сделай светлый вариант слайда avi.mommy но с лаймовым фоном справа вместо светло-серого — как цвет с фото')">Лаймовый фон ↗</button>
+  <button onclick="sendPrompt('Сделай следующий слайд в тёмном стиле avi.mommy — левая половина под видео, правая: одна мысль про 3 критерия прибыльной ниши')">Слайд 2 ↗</button>
+  <button onclick="sendPrompt('Экспортируй оба варианта слайда в Canva')">Открыть в Canva ↗</button>
+</div>
